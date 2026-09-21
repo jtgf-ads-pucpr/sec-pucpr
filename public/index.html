@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestão de Usuários</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div><p class="eyebrow">API REST SEGURA</p><h1>Gestão de usuários</h1></div>
+      <button id="logout-button" class="secondary hidden" type="button">Sair</button>
+    </header>
+
+    <section id="login-section" class="card login-card">
+      <h2>Entrar</h2>
+      <p>Autentique-se para acessar os recursos protegidos.</p>
+      <form id="login-form">
+        <label>E-mail <input id="login-email" type="email" value="admin@exemplo.com" required autocomplete="email"></label>
+        <label>Senha <input id="login-password" type="password" value="Admin@123" required autocomplete="current-password"></label>
+        <button type="submit">Fazer login</button>
+      </form>
+    </section>
+
+    <section id="app-section" class="hidden">
+      <div class="session card"><span>Usuário autenticado</span><strong id="session-user"></strong><span id="session-profile" class="badge"></span></div>
+      <div class="grid">
+        <section id="create-section" class="card hidden">
+          <h2 id="form-title">Cadastrar usuário</h2>
+          <form id="user-form">
+            <label>Nome <input id="user-name" required minlength="3"></label>
+            <label>E-mail <input id="user-email" type="email" required></label>
+            <label id="password-field">Senha <input id="user-password" type="password" required minlength="8" placeholder="Mínimo de 8 caracteres"></label>
+            <label id="profile-field">Perfil
+              <select id="user-profile"><option value="CLIENTE">Cliente</option><option value="OPERADOR">Operador</option><option value="ADMIN">Administrador</option></select>
+            </label>
+            <div class="actions"><button id="save-button" type="submit">Cadastrar</button><button id="cancel-button" class="secondary hidden" type="button">Cancelar edição</button></div>
+          </form>
+        </section>
+        <section class="card users-card">
+          <div class="section-title"><div><h2>Usuários</h2><p id="list-hint">Carregando dados...</p></div><button id="refresh-button" class="secondary" type="button">Atualizar</button></div>
+          <div class="table-wrap"><table><thead><tr><th>Nome</th><th>E-mail</th><th>Perfil</th><th>Ações</th></tr></thead><tbody id="users-body"></tbody></table></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="card response-card"><h2>Resposta da API</h2><pre id="api-response">Aguardando uma requisição.</pre></section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

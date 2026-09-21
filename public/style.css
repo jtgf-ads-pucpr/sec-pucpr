@@ -1,0 +1,18 @@
+:root { --navy:#102a43; --blue:#1677c8; --pale:#eef6fc; --line:#cbd5e1; --danger:#bd1e38; --text:#243b53; }
+* { box-sizing:border-box; }
+body { margin:0; background:#f5f8fb; color:var(--text); font:16px/1.5 Arial,sans-serif; }
+.container { max-width:1120px; margin:0 auto; padding:38px 20px 64px; }
+header,.section-title,.session,.actions { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+h1,h2,p { margin-top:0; } h1 { color:var(--navy); margin-bottom:0; } h2 { margin-bottom:6px; font-size:1.2rem; } p { color:#627d98; }
+.eyebrow { color:var(--blue); font-size:.75rem; font-weight:bold; letter-spacing:.12em; margin-bottom:4px; }
+.card { background:#fff; border:1px solid #e2e8f0; border-radius:12px; box-shadow:0 4px 18px #102a4310; padding:24px; margin-top:24px; }
+.login-card { max-width:470px; margin-inline:auto; } form { display:grid; gap:14px; } label { display:grid; gap:6px; font-weight:bold; font-size:.9rem; }
+input,select { border:1px solid var(--line); border-radius:7px; padding:10px; font:inherit; color:var(--text); }
+input:focus,select:focus { outline:3px solid #b9ddfa; border-color:var(--blue); }
+button { background:var(--blue); border:1px solid var(--blue); border-radius:7px; color:#fff; cursor:pointer; font:inherit; font-weight:bold; padding:9px 14px; }
+button:hover { filter:brightness(.92); } button.secondary { background:#fff; color:var(--blue); } button.danger { border-color:var(--danger); background:var(--danger); } button.small { padding:5px 9px; font-size:.83rem; }
+.hidden { display:none !important; } .grid { display:grid; grid-template-columns:minmax(280px,.75fr) minmax(0,1.6fr); gap:24px; align-items:start; }
+.grid .card { margin-top:24px; } .users-card { min-width:0; } .session { justify-content:flex-start; margin-top:24px; padding:14px 20px; } .badge { background:var(--pale); color:#075b9b; border-radius:999px; padding:2px 10px; font-size:.8rem; font-weight:bold; }
+.table-wrap { overflow-x:auto; } table { width:100%; border-collapse:collapse; } th,td { padding:12px 8px; border-bottom:1px solid #e2e8f0; text-align:left; } th { color:#486581; font-size:.8rem; text-transform:uppercase; } td:last-child { white-space:nowrap; } td button + button { margin-left:6px; }
+pre { margin:0; min-height:54px; overflow:auto; white-space:pre-wrap; background:#102a43; border-radius:7px; color:#d9e2ec; padding:15px; font-size:.84rem; }
+@media (max-width:780px) { .grid { grid-template-columns:1fr; } .container { padding:24px 14px; } .card { padding:18px; } }

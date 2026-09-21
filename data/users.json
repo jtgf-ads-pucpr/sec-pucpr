@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "nome": "Administrador Inicial",
+    "email": "admin@exemplo.com",
+    "perfil": "ADMIN",
+    "senhaHash": "$2b$12$hNlHi6PBRGpJsGGaqODY3O41SgedWs4I89TbEqK140mMrUnbtE10C",
+    "criadoEm": "2026-09-21T22:55:01.781Z"
+  },
+  {
+    "id": 2,
+    "nome": "Cliente Teste",
+    "email": "cliente.teste@exemplo.com",
+    "perfil": "CLIENTE",
+    "senhaHash": "$2b$12$8J/1Fr2p8gFy7mCFp1Kvx.zVn.Ailwc7bN7RR5L9moIEDDPB4xAZ.",
+    "criadoEm": "2026-09-21T22:55:16.748Z"
+  }
+]
