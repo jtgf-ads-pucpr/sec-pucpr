@@ -116,6 +116,19 @@ Também é possível testar a API em ferramentas como Postman ou Insomnia. A doc
 - A senha não é devolvida nas respostas da API.
 - O sistema valida e-mail, senha, perfil e duplicidade de e-mail.
 
+## Login com Google (OAuth 2.0)
+
+O projeto possui suporte opcional ao login com Google. Para ativar, é necessário criar um cliente OAuth do tipo **Aplicativo da Web** no Google Cloud e cadastrar as seguintes variáveis de ambiente:
+
+```env
+GOOGLE_CLIENT_ID=seu-client-id
+GOOGLE_CLIENT_SECRET=sua-chave-secreta
+GOOGLE_CALLBACK_URL=https://seu-dominio/api/auth/google/callback
+SESSION_SECRET=outra-chave-longa-e-secreta
+```
+
+No Render, essas informações devem ser cadastradas em **Environment**. Nunca devem ser enviadas ao GitHub.
+
 ## Observação
 
 O projeto foi criado para uma atividade acadêmica e funciona localmente. Para publicação em produção seriam necessárias melhorias, como HTTPS, banco de dados, controle de tentativas de login e configuração segura das variáveis de ambiente.

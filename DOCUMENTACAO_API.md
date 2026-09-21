@@ -150,6 +150,12 @@ Os principais benefícios são não compartilhar senhas com outras aplicações,
 
 OAuth 2.0 foi explicado na documentação, mas não foi implementado, conforme solicitado no enunciado.
 
+### Implementação adicional: login com Google
+
+Como melhoria, o projeto também pode usar OAuth 2.0 com Google. Ao clicar em **Entrar com Google**, o usuário é direcionado para o Google, autoriza o acesso ao nome e e-mail, e retorna para a aplicação. Se for o primeiro acesso, a API cria automaticamente um usuário com perfil `CLIENTE`. O perfil pode ser alterado depois por um administrador.
+
+As chaves do Google ficam somente nas variáveis protegidas do ambiente de hospedagem. Elas não são colocadas no código-fonte ou no GitHub.
+
 ## 7. Análise de segurança
 
 | Risco | Possível problema | Medida usada ou recomendada |

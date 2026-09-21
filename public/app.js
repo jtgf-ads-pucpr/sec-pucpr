@@ -12,6 +12,19 @@ function profileLabel(profile) { return ({ ADMIN:'Administrador', OPERADOR:'Oper
 function isAdmin() { return currentUser?.perfil === 'ADMIN'; }
 function canEdit() { return ['ADMIN', 'OPERADOR'].includes(currentUser?.perfil); }
 
+function finishGoogleLogin() {
+  const oauthToken = new URLSearchParams(window.location.hash.substring(1)).get('oauth_token');
+  if (!oauthToken) return;
+  try {
+    const payload = JSON.parse(atob(oauthToken.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+    token = oauthToken;
+    currentUser = { id: payload.id, nome: payload.nome, perfil: payload.perfil };
+    sessionStorage.setItem('token', token);
+    sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+    history.replaceState(null, '', window.location.pathname);
+  } catch { showResponse('Não foi possível concluir o login com Google.'); }
+}
+
 async function request(url, options = {}) {
   const response = await fetch(`${API}${url}`, options);
   const content = response.status === 204 ? null : await response.json().catch(() => ({ erro: 'Resposta inválida.' }));
@@ -83,4 +96,5 @@ $('#user-form').addEventListener('submit', async (event) => {
 
 $('#refresh-button').onclick = loadUsers; $('#cancel-button').onclick = cancelEdit;
 $('#logout-button').onclick = () => { token = null; currentUser = null; sessionStorage.clear(); cancelEdit(); setLoggedIn(false); showResponse('Sessão encerrada.'); };
+finishGoogleLogin();
 if (token && currentUser) { setLoggedIn(true); loadUsers(); }
